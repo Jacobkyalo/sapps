@@ -3,7 +3,7 @@ import FooterComponent from "../components/FooterComponent";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { FormContext } from "../contexts/FormContext";
-import { convertGPA } from "../utils/conversion";
+import { convertGPA, capitalizeWords } from "../utils/conversion";
 
 const Dashboard = () => {
   const { state } = useContext(FormContext);
@@ -71,10 +71,10 @@ const Dashboard = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>CCS3354</td>
-                    <td>Data Mining</td>
-                    <td>76</td>
-                    <td>100</td>
+                    <td>{state.unitCode.toUpperCase()}</td>
+                    <td>{capitalizeWords(state.unitName)}</td>
+                    <td>{state.unitScore}</td>
+                    <td>{state.totalMarks}</td>
                   </tr>
                 </tbody>
               </Table>
