@@ -3,6 +3,7 @@ import FooterComponent from "../components/FooterComponent";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { FormContext } from "../contexts/FormContext";
+import { convertGPA } from "../utils/conversion";
 
 const Dashboard = () => {
   const { state } = useContext(FormContext);
@@ -52,7 +53,13 @@ const Dashboard = () => {
               <p className="lead fs-5 fw-bold lh-1">
                 Percentage: <span className="lead">{state.unitScore}%</span>
               </p>
-              <p className="lead fs-5 fw-bold lh-1 mb-3">GPA:</p>
+              <p className="lead fs-5 fw-bold lh-1 mb-3">
+                GPA:
+                <span className="lead">
+                  {" "}
+                  {convertGPA(state.unitScore, state.totalMarks)}
+                </span>
+              </p>
               <Table striped bordered hover>
                 <thead>
                   <tr>
