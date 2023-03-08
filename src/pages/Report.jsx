@@ -59,7 +59,7 @@ const Report = () => {
                 </div>
                 <div className="col-12 col-md-12 col-lg-4 ">
                   <div
-                    className="border border-primary text-center p-4 rounded"
+                    className="border border-primary text-center py-2 rounded"
                     style={{ height: "25rem" }}
                   >
                     <h5 className="mb-3">Score Graph</h5>
@@ -72,7 +72,7 @@ const Report = () => {
                 </div>
                 <div className="col-12 col-md-12 col-lg-4 ">
                   <div
-                    className="border border-primary text-center p-4 rounded"
+                    className="border border-primary text-center py-2 rounded"
                     style={{ height: "25rem" }}
                   >
                     <h5 className="mb-3">Predicted Score Graph</h5>
