@@ -34,7 +34,7 @@ const SignUpPage = () => {
         <NavbarComponent logo="SAPPS" btn1="Sign Up" btn2="Login" />
         <section className="my-5">
           <div
-            style={{ height: "100%", width: "350px", margin: "auto" }}
+            style={{ height: "100%", width: "320px", margin: "auto" }}
             className="border p-4"
           >
             <h2 className="fw-semibold fs-4 mb-4">Signup to continue.</h2>
@@ -46,6 +46,7 @@ const SignUpPage = () => {
                   placeholder="Enter email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  autoComplete='off'
                   required
                 />
               </Form.Group>
@@ -58,6 +59,7 @@ const SignUpPage = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   min="6"
                   max="10"
+                  autoComplete='off'
                   required
                 />
               </Form.Group>
