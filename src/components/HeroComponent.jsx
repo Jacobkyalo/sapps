@@ -7,7 +7,7 @@ const HeroComponent = () => {
       <div className="d-flex justify-content-center align-items-center flex-column">
         <div className="py-4 w-100">
           <h1 className="fw-bolder fs-1 text-capitalize text-center lh-base">
-            do you want to predict your your next academic performance?
+            Predict your next academic performance?
           </h1>
           <p className="lead my-3 text-center fs-3">
             Sign Up and Get Started Today!
