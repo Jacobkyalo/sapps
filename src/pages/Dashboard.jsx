@@ -1,76 +1,11 @@
-import { Button, Container, Form, Modal, Table } from "react-bootstrap";
-import { useState } from "react";
+import { Button, Container, Table } from "react-bootstrap";
 import FooterComponent from "../components/FooterComponent";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { FormContext } from "../contexts/FormContext";
 
 const Dashboard = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  function AddUnitModal() {
-    return (
-      <>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Unit details</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form>
-              <Form.Group className="mb-3" controlId="Semester">
-                <Form.Select aria-label="Semester" required>
-                  <option>Semester</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                  <option value="4">Four</option>
-                  <option value="5">Five</option>
-                  <option value="6">Six</option>
-                  <option value="7">Seven</option>
-                  <option value="8">Eight</option>
-                </Form.Select>
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="unitcode">
-                <Form.Label>Unit Code</Form.Label>
-                <Form.Control type="text" placeholder="Unit Code" required />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="unitname">
-                <Form.Label>Unit Name</Form.Label>
-                <Form.Control type="text" placeholder="Unit Name" required />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="unitscore">
-                <Form.Label>Unit Score</Form.Label>
-                <Form.Control
-                  type="number"
-                  min="1"
-                  max="100"
-                  placeholder="Unit Score"
-                  required
-                />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="totalmarks">
-                <Form.Label>Total Marks</Form.Label>
-                <Form.Control
-                  type="number"
-                  min="100"
-                  max="100"
-                  placeholder="100"
-                  value={100}
-                  required
-                />
-              </Form.Group>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="danger" onClick={handleClose}>
-              Cancel
-            </Button>
-            <Button variant="primary">Add Unit</Button>
-          </Modal.Footer>
-        </Modal>
-      </>
-    );
-  }
+  const { state } = useContext(FormContext);
   return (
     <Container>
       <Container>
@@ -97,16 +32,26 @@ const Dashboard = () => {
           </h1>
           <div className="row">
             <div className="col-12 col-md-6 col-lg-6">
-              <Button size="lg" className="my-4 p-5 w-75" onClick={handleShow}>
-                Add Unit
-              </Button>
+              <Link to="/dashboard/add">
+                <Button size="lg" className="my-4 p-5 w-75">
+                  Add Unit
+                </Button>
+              </Link>
             </div>
             <div className="col-12 col-md-6 col-lg-6">
-              <h3 className="fs-4 fs-semibold w-100">
-                Unit details : Semester Two
+              <h3 className="fs-5 fs-semibold w-100 mb-3">
+                Unit details : Semester{" "}
+                <span className="lead">{state.semester}</span>
               </h3>
-              <p className="lead fs-5 fw-bold lh-1">Marks Scored:</p>
-              <p className="lead fs-5 fw-bold lh-1">Percentage:</p>
+              <p className="lead fs-5 fw-bold lh-1">
+                Marks Scored:{" "}
+                <span className="lead">
+                  {state.unitScore}/{state.totalMarks}
+                </span>
+              </p>
+              <p className="lead fs-5 fw-bold lh-1">
+                Percentage: <span className="lead">{state.unitScore}%</span>
+              </p>
               <p className="lead fs-5 fw-bold lh-1 mb-3">GPA:</p>
               <Table striped bordered hover>
                 <thead>
@@ -128,7 +73,6 @@ const Dashboard = () => {
               </Table>
             </div>
           </div>
-          {show && <AddUnitModal />}
         </section>
         <FooterComponent />
       </Container>
