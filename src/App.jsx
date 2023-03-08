@@ -8,6 +8,7 @@ import "./App.css";
 import FormContextProvider from "./contexts/FormContext";
 import AddUnitModal from "./components/AddUnitModal";
 import UserContextProvider from "./contexts/UserContext";
+import ProtectedRoute from './routes/ProtectedRoute'
 
 function App() {
   return (
@@ -18,9 +19,11 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dashboard/add" element={<AddUnitModal />} />
-            <Route path="/report" element={<Report />} />
+            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+            <Route path="/dashboard/add" element={<ProtectedRoute><AddUnitModal /></ProtectedRoute>} />
+            <Route path="/report" element={<ProtectedRoute>
+              <Report />
+              </ProtectedRoute>} />
           </Routes>
         </Router>
       </FormContextProvider>
