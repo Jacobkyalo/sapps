@@ -32,6 +32,7 @@ function AddUnitModal() {
               value={state.semester}
               onChange={handleChange}
               placeholder="Enter semester"
+              autoComplete="off"
               required
             />
           </Form.Group>
@@ -43,6 +44,7 @@ function AddUnitModal() {
               value={state.unitCode}
               onChange={handleChange}
               placeholder="Unit Code"
+              autoComplete="off"
               required
             />
           </Form.Group>
@@ -54,6 +56,7 @@ function AddUnitModal() {
               value={state.unitName}
               onChange={handleChange}
               placeholder="Unit Name"
+              autoComplete="off"
               required
             />
           </Form.Group>
@@ -67,6 +70,7 @@ function AddUnitModal() {
               value={state.unitScore}
               onChange={handleChange}
               placeholder="Unit Score"
+              autoComplete="off"
               required
             />
           </Form.Group>
@@ -78,7 +82,7 @@ function AddUnitModal() {
               max="100"
               value={state.totalMarks}
               onChange={handleChange}
-              // placeholder="100"
+              autoComplete="off"
               name="totalMarks"
             />
           </Form.Group>
